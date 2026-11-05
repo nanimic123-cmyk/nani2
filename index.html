@@ -1,0 +1,208 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareerPath AI | Student Career Guidance</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">CareerPath <span>AI</span></div>
+  <div class="header-right">Student Career Guidance System</div>
+</header>
+
+<div class="layout">
+  <aside class="sidebar">
+    <h3>MENU</h3>
+    <button class="nav active" data-page="dashboard">▦ Dashboard</button>
+    <button class="nav" data-page="profile">♙ Student Profile</button>
+    <button class="nav" data-page="careers">◎ Career Recommendations</button>
+    <button class="nav" data-page="skills">✧ Skill Gap Analysis</button>
+    <button class="nav" data-page="courses">▤ Courses & Certifications</button>
+    <button class="nav" data-page="pathway">➜ Learning Pathway</button>
+  </aside>
+
+  <main class="content">
+
+    <!-- DASHBOARD -->
+    <section id="dashboard" class="page active-page">
+      <div class="welcome">
+        <div>
+          <p class="eyebrow">CAREER DEVELOPMENT PLATFORM</p>
+          <h1>Build Your Career with Confidence</h1>
+          <p>Discover suitable careers, identify skill gaps and find learning resources.</p>
+        </div>
+        <button class="primary" id="demoBtn">Load Demo Student</button>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <p>Student</p>
+          <h2 id="dashName">Not registered</h2>
+        </div>
+        <div class="stat-card">
+          <p>Career Match</p>
+          <h2 id="dashMatch">0%</h2>
+        </div>
+        <div class="stat-card">
+          <p>Skills Matched</p>
+          <h2 id="dashSkills">0</h2>
+        </div>
+        <div class="stat-card">
+          <p>Learning Progress</p>
+          <h2 id="dashProgress">0%</h2>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>How CareerPath AI Works</h2>
+        <div class="steps">
+          <div><b>01</b><h3>Register</h3><p>Enter academic details and skills.</p></div>
+          <div><b>02</b><h3>Analyze</h3><p>Compare your skills with job requirements.</p></div>
+          <div><b>03</b><h3>Recommend</h3><p>Find suitable courses and certifications.</p></div>
+          <div><b>04</b><h3>Improve</h3><p>Follow your learning pathway.</p></div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <h2>Quick Start</h2>
+        <p>Try the demo student to see a complete example of the recommendation process.</p>
+        <button class="primary" id="profileShortcut">Create Student Profile</button>
+      </div>
+    </section>
+
+    <!-- PROFILE -->
+    <section id="profile" class="page">
+      <div class="page-heading">
+        <p class="eyebrow">STUDENT INFORMATION</p>
+        <h1>Student Profile</h1>
+        <p>Enter your academic background, skills and career preferences.</p>
+      </div>
+
+      <div class="panel">
+        <form id="profileForm">
+          <div class="form-grid">
+            <label>Full Name
+              <input id="name" required placeholder="Example: Rahul Kumar">
+            </label>
+
+            <label>Email
+              <input id="email" type="email" required placeholder="student@example.com">
+            </label>
+
+            <label>Education Level
+              <select id="education" required>
+                <option value="">Select education</option>
+                <option>Undergraduate</option>
+                <option>Postgraduate</option>
+                <option>Graduate</option>
+              </select>
+            </label>
+
+            <label>Degree
+              <input id="degree" required placeholder="Example: B.Tech">
+            </label>
+
+            <label>Specialization
+              <input id="specialization" required placeholder="Example: Computer Science">
+            </label>
+
+            <label>Graduation Year
+              <input id="year" type="number" min="2020" max="2040" required placeholder="2027">
+            </label>
+
+            <label class="full">Preferred Job Role
+              <select id="role" required>
+                <option value="">Select your career goal</option>
+                <option>Data Analyst</option>
+                <option>Data Scientist</option>
+                <option>Software Developer</option>
+                <option>Web Developer</option>
+                <option>Cybersecurity Analyst</option>
+                <option>Cloud Engineer</option>
+              </select>
+            </label>
+
+            <label class="full">Existing Technical Skills
+              <textarea id="skillsInput" rows="4"
+                placeholder="Example: Python, SQL, Excel, HTML"></textarea>
+              <small>Separate each skill with a comma.</small>
+            </label>
+
+            <label class="full">Soft Skills
+              <input id="softSkills" placeholder="Example: Communication, Teamwork">
+            </label>
+          </div>
+
+          <div class="button-row">
+            <button type="submit" class="primary">Save Profile & Analyze</button>
+            <button type="reset" class="secondary">Clear Form</button>
+          </div>
+        </form>
+        <p id="profileMessage" class="message"></p>
+      </div>
+    </section>
+
+    <!-- CAREER -->
+    <section id="careers" class="page">
+      <div class="page-heading">
+        <p class="eyebrow">PERSONALIZED RESULTS</p>
+        <h1>Career Recommendations</h1>
+        <p>Career suitability based on your selected job role and current skills.</p>
+      </div>
+
+      <div id="careerResults" class="results">
+        <div class="empty-state">Save your student profile to generate career recommendations.</div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="page">
+      <div class="page-heading">
+        <p class="eyebrow">SKILL COMPARISON</p>
+        <h1>Skill Gap Analysis</h1>
+        <p>Compare your current skills with the selected career requirements.</p>
+      </div>
+
+      <div id="skillResults">
+        <div class="empty-state">Complete your profile to view your skill gaps.</div>
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section id="courses" class="page">
+      <div class="page-heading">
+        <p class="eyebrow">LEARNING RESOURCES</p>
+        <h1>Courses & Certifications</h1>
+        <p>Suggested learning resources to improve your employability.</p>
+      </div>
+
+      <div id="courseResults">
+        <div class="empty-state">Save your profile to see relevant learning resources.</div>
+      </div>
+    </section>
+
+    <!-- PATHWAY -->
+    <section id="pathway" class="page">
+      <div class="page-heading">
+        <p class="eyebrow">YOUR LEARNING PLAN</p>
+        <h1>Personalized Learning Pathway</h1>
+        <p>Track your learning activities and career preparation.</p>
+      </div>
+
+      <div id="pathwayResults">
+        <div class="empty-state">Your learning pathway will appear here after profile analysis.</div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<footer>CareerPath AI © 2026 | Student Career Guidance System</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
